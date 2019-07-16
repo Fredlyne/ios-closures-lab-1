@@ -6,9 +6,19 @@ Fork and clone this repo. On your fork, answer and commit the follow questions. 
 
 Write a function named `applyKTimes` that takes an integer `K` and a closure and calls the closure K times. The closure will not take any parameters and will not have a return value.
 
+
+```
+func applyKTimes(_ k: Int, _ closure: () -> ()) {
+for something in 0..<k {
+closure()
+}
+}
+
+applyKTimes(3, {print("Hello Closures")})
+
 Function Definition:
 func applyKTimes(_ K: Int, _ closure: () -> ())
-
+```
 Example:
 Input:
 
@@ -30,8 +40,12 @@ Hello Closures!
 
 Use `filter` to create an array called `multiples` that contains all the multiples of 3 from `numbers` and then print it.
 
-`let numbers = [1, 2, 3, 4, 6, 8, 9, 3, 12, 11]`
-
+```
+let numbers = [1, 2, 3, 4, 6, 8, 9, 3, 12, 11]
+let numbers = [1, 2, 3, 4, 6, 8, 9, 3, 12, 11]
+let multiplesOfThree = numbers.filter({$0 % 3 == 0})
+print(multiplesOfThree)
+```
 Example:
 Input: `let numbers = [1, 2, 3, 4, 6, 8, 9, 3, 12, 11]`
 
@@ -41,17 +55,24 @@ Expected values: `multiples = [3, 6, 9, 3, 12]`
 ## Question 3
 
 Find the largest number from `numbers` and then print it. Use `reduce` to solve this exercise.
-
+```
+let numbers = [4, 7, 1, 9, 6, 5, 6, 9]
+let largestNum = numbers.reduce(0, {(a, b) in return a > b ? a : b} )
+print(largestNum)
 Example:
 Input: `let numbers = [4, 7, 1, 9, 6, 5, 6, 9]`
-
+```
 Output: `9`
 
 
 ## Question 4
 
 Join all the strings from `strings` into one using `reduce`. Add spaces in between strings. Print your result.
-
+```
+let strings = ["We", "Heart", "Swift"]
+let reducedStrings = strings.reduce("", {$0 + " " + $1 })
+print(reducedStrings)
+```
 Example:
 Input: `let strings = ["We", "Heart", "Swift"]`
 
@@ -61,12 +82,17 @@ Output: `"We Heart Swift"`
 ## Question 5
 
 `let cities = ["Shanghai", "Beijing", "Delhi", "Lagos", "Tianjin", "Karachi", "Karachi", "Tokyo", "Guangzhou", "Mumbai", "Moscow", "São Paulo"]`
-
-a. Use `sortedBy` to sort `cities` in alphabetical order.
-
-b. Use `sortedBy` to sort `cities` alphabetical order of the second character of the city name.
-
-c. Use `sortedBy` to sort `cities` in order of the length of the city name.
+```
+let cities = ["Shanghai", "Beijing", "Delhi", "Lagos", "Tianjin", "Karachi", "Karachi", "Tokyo", "Guangzhou", "Mumbai", "Moscow", "São Paulo"]
+//a. Use `sortedBy` to sort `cities` in alphabetical order.
+var sortedABC = cities.sorted(by: {(a: String, b: String) -> Bool in return a < b})
+var reverseAbcSorted = cities.sorted(by: {$0 > $1})
+print(sortedABC)
+print(reverseAbcSorted)
+//b. Use `sortedBy` to sort `cities` alphabetical order of the second character of the city name.
+var abcSortIndexTwo = cities.sorted(by: { $0.i })
+//c. Use `sortedBy` to sort `cities` in order of the length of the city name.
+```
 
 
 ## Question 6
